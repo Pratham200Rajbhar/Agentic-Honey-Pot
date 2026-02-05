@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honey-Pot | Agentic Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css?v=3">
+</head>
+<body class="cyber-theme">
+    <div class="blob-bg"></div>
+    <div class="noise-overlay"></div>
+
+    <nav class="cyber-nav">
+        <div class="container container-wide flex-between">
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 8V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h1 class="brand-text">Honey<span>Pot</span></h1>
+            </div>
+            <div class="system-status">
+                <span class="status-pulse"></span>
+                <span class="status-label">Engine Ready</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Dashboard Header -->
+        <header class="page-header">
+            <h2 class="hero-title">Scam Intelligence Engine</h2>
+            <p class="hero-subtitle">Deploy agentic analysis to deconstruct advanced digital threats.</p>
+        </header>
+
+        <!-- Analysis Command Center -->
+        <section class="command-center grid-main">
+            <div class="glass-panel main-panel">
+                <div class="panel-header">
+                    <span class="panel-tag">Intelligence Input</span>
+                    <h3>Threat Deconstruction</h3>
+                </div>
+                <div class="input-area">
+                    <textarea id="messageInput" placeholder="Paste suspicious message for deep analysis..."></textarea>
+                    
+                    <div class="input-controls">
+                        <div class="api-control group">
+                            <label for="apiKey">Execution Key</label>
+                            <input type="text" id="apiKey" placeholder="hp_key_..." autocomplete="off">
+                        </div>
+                        <button id="analyzeBtn" class="action-btn primary-gradient">
+                            <span class="btn-icon">⚡</span>
+                            <span class="btn-text">Execute Analysis</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="quickStats" class="glass-panel stats-panel">
+                <div class="panel-header">
+                    <span class="panel-tag">Live Feed</span>
+                    <h3>System State</h3>
+                </div>
+                <div class="stats-list">
+                    <div class="stat-item">
+                        <span class="stat-label">Neural Engine</span>
+                        <span class="stat-value text-primary">v2.4.0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Inference Mode</span>
+                        <span class="stat-value">Transformer</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Memory Sync</span>
+                        <span class="stat-value text-success">Online</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intelligence Report -->
+        <section id="intelligenceReport" class="report-section hidden hidden-initial">
+            <div class="grid-report">
+                <!-- Threat Meter -->
+                <div class="glass-panel meter-panel flex-center column">
+                    <div class="meter-container">
+                        <svg class="meter-svg" viewBox="0 0 100 100">
+                            <circle class="meter-track" cx="50" cy="50" r="45"></circle>
+                            <circle id="meterFill" class="meter-fill" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <div class="meter-content">
+                            <span id="threatScoreDisplay" class="score-num">0</span>
+                            <span class="score-label">Threat Score</span>
+                        </div>
+                    </div>
+                    <div id="threatBadge" class="badge-status">Analyzing...</div>
+                </div>
+
+                <!-- Analysis Summary -->
+                <div class="glass-panel summary-panel">
+                    <div class="panel-header">
+                        <h3>Intelligence Synthesis</h3>
+                    </div>
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <label>Scam Identifier</label>
+                            <div id="scamTypeDisplay" class="info-value">--</div>
+                        </div>
+                        <div class="summary-card">
+                            <label>Model Confidence</label>
+                            <div id="confidenceDisplay" class="info-value">0%</div>
+                        </div>
+                        <div id="intentBox" class="summary-card full-span">
+                            <label>Attacker Intent</label>
+                            <p id="intentOutput" class="intent-text">Waiting for processing...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entity Extraction -->
+                <div class="glass-panel entity-panel">
+                    <div class="panel-header">
+                        <h3>Extracted Artifacts</h3>
+                    </div>
+                    <div id="entityCloud" class="artifact-cloud">
+                        <!-- Entities dynamically populated -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="api-management-section">
+            <div class="section-heading">
+                <h2>Vault Management</h2>
+                <div class="separator"></div>
+            </div>
+
+            <div class="management-grid">
+                <!-- Key Provisioning -->
+                <div class="glass-panel create-panel">
+                    <div class="panel-header">
+                        <span class="panel-tag">Secure Vault</span>
+                        <h3>Provision API Key</h3>
+                    </div>
+                    <div class="provision-form">
+                        <div class="form-group">
+                            <input type="text" id="newKeyName" placeholder="Resource Name (e.g. Prod Engine)">
+                            <button id="createKeyBtn" class="action-btn secondary-btn">Generate</button>
+                        </div>
+                        <div id="newKeyDisplay" class="vault-alert hidden">
+                            <div class="alert-content">
+                                <span class="alert-title">One-Time Secret</span>
+                                <div class="key-wrapper">
+                                    <code id="generatedKey">hp_...</code>
+                                    <button id="copyKeyBtn" class="copy-btn" title="Copy Secret">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keys Inventory -->
+                <div class="glass-panel inventory-panel">
+                    <div class="panel-header">
+                        <h3>Inventory</h3>
+                    </div>
+                    <div class="vault-scroll">
+                        <table class="cyber-table">
+                            <thead>
+                                <tr>
+                                    <th>Resource</th>
+                                    <th>Signature</th>
+                                    <th>Sync Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="keysTableBody">
+                                <tr>
+                                    <td colspan="4" class="table-loading">Initializing vault...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="cyber-footer">
+        <p>&copy; 2026 Honey-Pot Project. Distributed Intelligence Framework.</p>
+    </footer>
+
+    <script src="/static/app.js?v=2"></script>
+</body>
+</html>

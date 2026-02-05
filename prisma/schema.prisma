@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-py"
+  recursive_type_depth = 5
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  email     String   @unique
+  created_at DateTime @default(now())
+  api_keys  ApiKey[]
+}
+
+model ApiKey {
+  id         String   @id @default(cuid())
+  name       String
+  hashed_key String   @unique
+  prefix     String
+  created_at DateTime @default(now())
+  last_used  DateTime?
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+}
